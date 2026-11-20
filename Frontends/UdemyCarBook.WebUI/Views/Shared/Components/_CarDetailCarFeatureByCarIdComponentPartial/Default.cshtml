@@ -1,0 +1,32 @@
+﻿@model List<ResultCarFeatureByCarIdDto>
+
+@{
+	var columns = Model
+		.Select((item, index) => new { item, index })
+		.GroupBy(x => x.index / 5)
+		.Select(g => g.Select(x => x.item).ToList())
+		.ToList();
+}
+
+<div class="tab-pane fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
+	<div class="row">
+		@foreach (var col in columns)
+		{
+			<div class="col-md-4">
+				<ul class="features">
+					@foreach (var item in col)
+					{
+						if (item.Available == true)
+						{
+							<li class="check"><span class="ion-ios-checkmark"></span>@item.FeatureName</li>
+						}
+						else
+						{
+							<li class="remove"><span class="ion-ios-checkmark"></span>@item.FeatureName</li>
+						}
+					}
+				</ul>
+			</div>
+		}
+	</div>
+</div>

@@ -1,0 +1,48 @@
+﻿@model List<UdemyCarBook.Dto.FeatureDtos.ResultFeatureDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+    int count = 0;
+}
+
+<div class="page-content">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Araba Özellikleri Listesi</h4>
+                    <p class="card-subtitle mb-4">
+                        Arabalarla İlgili Yeni Özellik Ekleme (Klima,Bluetooht, Audio, Elektrik vs.)Özellikler Listesi, Özelllikler Üzerinde Düzenleme Ve Bir Özelliği Kaldırma İşlemini Buradan Gerçekleştirebilirsiniz.Temada Veri Tutarlılığını Sağlıyabilmek İçin Lütfen 3'ün Katı Şeklinde Veri Girişi Yapınız.
+                    </p>
+                    <div class="table-responsive">
+                        <table class="table mb-0">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Özellik</th>
+                                    <th>Sil</th>
+                                    <th>Güncelle</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    count++;
+                                    <tr>
+                                        <th scope="row">@count</th>
+                                        <td>@item.Name</td>
+                                        <td><a href="/AdminFeature/RemoveFeature/@item.FeatureID" class="btn btn-danger">Sil</a></td>
+                                        <td><a href="/AdminFeature/UpdateFeature/@item.FeatureID" class="btn btn-warning">Güncelle</a></td>
+                                    </tr>
+                                }
+
+                            </tbody>
+                        </table>
+                        <td><a href="/AdminFeature/CreateFeature/" class="btn btn-success">Yeni Özellik Girişi</a></td>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,20 @@
+﻿
+@model List<ResultCommentDto>
+
+<ul class="comment-list">
+    @foreach (var item in Model)
+    {
+        <li class="comment">
+            <div class="vcard bio d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; border-radius: 50%; background-color: #e9ecef; color: #495057; flex-shrink: 0;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 12c2.761 0 5-2.239 5-5s-2.239-5-5-5-5 2.239-5 5 2.239 5 5 5zm0 2c-3.866 0-7 2.239-7 5v1h14v-1c0-2.761-3.134-5-7-5z" />
+                </svg>
+            </div>
+            <div class="comment-body">
+                <h3>@item.Name</h3>
+                <div class="meta">@(((DateTime)@item.CreatedDate).ToString("dd-MMM-yyyy"))</div>
+                <p>@item.Description</p>
+            </div>
+        </li>
+    }
+</ul>

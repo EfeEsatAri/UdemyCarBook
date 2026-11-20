@@ -1,0 +1,35 @@
+﻿@model CreatePricingDto
+@{
+    ViewData["Title"] = "CreatePricing";
+    Layout = "~/Views/AdminLayout/Index.cshtml";
+}
+
+
+<div class="page-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xl-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Yeni Ödeme Yöntemi Girişi</h4>
+                        <p class="card-subtitle mb-4">Ödeme Yöntemini  Veri Girişini Aşağıdaki Panelden Yapabilirsiniz. Tasarımda Bozulma Olmaması Adına Sadece 1 Banner Veriniz Olsun.</p>
+                        <form method="post">
+                            <div class="form-group">
+                                <label for="exampleIntupTitle">Ödeme Yöntemi Adı</label>
+                                <input type="text" class="form-control" id="exampleIntupTitle" asp-for="Name" placeholder="Örn= Günlük/Aylık...">
+                            </div>                      
+                            <button type="submit" class="btn btn-primary waves-effect waves-light">Ödeme Bilgisini Kaydet</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
